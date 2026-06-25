@@ -18,7 +18,7 @@ const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
     database: "quora",
-    password: "soham2006"
+    password: ""
 })
 
 
@@ -123,6 +123,6 @@ app.patch("/posts/:id", (req, res) => {
   }
 });
 
-app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
+app.listen(port, (req, res) => {
+    console.log(`Listening on port '${port}`);
 });
