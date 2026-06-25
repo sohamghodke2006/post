@@ -1,11 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f2ee;
+    color: #1c1c1c;
+    padding: 2rem;
+}
+
 h1 {
-    color: maroon;
+    color: #b92b27;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #b92b27;
+    padding-bottom: 0.5rem;
+    display: inline-block;
 }
 
 .post {
-    background-color: blanchedalmond;
+    background-color: #ffffff;
+    border: 1px solid #e0ddd8;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    max-width: 680px;
+    transition: box-shadow 0.2s ease;
 }
 
-.user {
-    font-size: italic;
+.post:hover {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.username {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #b92b27;
+    margin-bottom: 0.4rem;
+}
+
+.content {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.post a {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 5px 12px;
+    border-radius: 6px;
+    margin-right: 8px;
+    border: 1px solid #ccc;
+    color: #444;
+    transition: background 0.15s, color 0.15s;
+}
+
+.post a:hover {
+    background-color: #f0ede8;
+    color: #111;
+}
+
+.post form {
+    display: inline;
+}
+
+.post form button {
+    font-size: 0.85rem;
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: 1px solid #e8c1c1;
+    background: transparent;
+    color: #b92b27;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+
+.post form button:hover {
+    background-color: #b92b27;
+    color: #fff;
+}
+
+body > a {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 8px 18px;
+    background-color: #b92b27;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+body > a:hover {
+    background-color: #951f1c;
 }

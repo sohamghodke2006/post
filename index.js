@@ -23,21 +23,7 @@ const connection = mysql.createConnection({
 
 
 let posts = [
-    {
-        id : uuidv4(),
-        username : "apnacollege",
-        content : "I love coding!"
-    },
-    {
-        id : uuidv4(),
-        username : "sohamghodke",
-        content : "Hard work is imp!"
-    },
-    {
-        id : uuidv4(),
-        username : "shraddhakhapra",
-        content : "I got selected for my first internship"
-    }
+    
 ];
 
 // View All Posts
@@ -122,13 +108,13 @@ app.get("/posts/:id/edit", (req, res) => {
 });
 app.patch("/posts/:id", (req, res) => {
   let { id } = req.params;
-  let { username, content } = req.body;
+  let { content } = req.body;
   let q2 = `UPDATE post SET content = '${content}' WHERE id = '${id}'`;
   try {
-    connection.query(q, (err, result) => {
+    connection.query(q2, (err, result) => {
       if (err) throw err;
-      let post = result[0];
-      res.render("edit.ejs", { post });
+    //   let post = result[0];
+      res.redirect("/posts");
       
     });
   } catch (err) {
@@ -140,5 +126,3 @@ app.patch("/posts/:id", (req, res) => {
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
-
-let q2 = `UPDATE user SET username = '${newUsername}' WHERE id = '${id}'`;
