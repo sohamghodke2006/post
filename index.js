@@ -40,7 +40,7 @@ let posts = [
     }
 ];
 
-// All Posts
+// View All Posts
 app.get("/posts", async (req, res) => {
     let q = "SELECT * FROM post";
     try {
@@ -60,12 +60,12 @@ app.get("/posts/new", (req, res) => {
 });
 app.post("/posts", (req, res) => {
     let q = "INSERT INTO post(id, username, content)  VALUES (?,?, ?)";
-
+    let id = uuidv4();
+    let { username, content } = req.body; 
     try {
-        connection.query(q, [id, username, content], (err, resut) => {
-        let id = uuidv4();
-        let { username, content } = req.body;            
+        connection.query(q, [id, username, content], (err, resut) => {           
             res.redirect("/posts");
+            console.log("Post is posted");
         });
 
     } catch (err) {
@@ -84,39 +84,61 @@ app.delete("/posts/:id", (req, res) => {
      connection.query(q, (err, result) => {
         if (err) throw err;
         res.redirect("/posts");
+        console.log("Post is Deleted");
     });
    } catch(err) {
     console.log(err);
     res.send("Some error in DB");
    }
 });
-
 app.get("/posts/:id", (req, res) => {
     let { id } = req.params;
-    let post = posts.find((p) => id === p.id );
-    res.render("show.ejs", { post });
+    let q = `SELECT *FROM post WHERE id = '${id}'`;
+    try {
+        connection.query(q, (err, result) => {
+            let post = result[0];
+            res.render("show.ejs", { post });
+        });
+    } catch(err) {
+        console.log(err);
+        res.send("Some error in DB");
+    }
 });
 
-app.patch("/posts/:id", (req, res) => {
-    let { id } = req.params;
-    let newContent = req.body.content;
-    let post = posts.find((p) => id === p.id );
-    post.content = newContent;
-    res.redirect("/posts");
-});
-
+// Edit Post
 app.get("/posts/:id/edit", (req, res) => {
-    let { id } = req.params;
-    let post = posts.find((p) => id === p.id );
-    res.render("edit.ejs", { post });
+  let { id } = req.params;
+  let q = `SELECT *FROM post WHERE id='${id}'`;
+  try {
+    connection.query(q, (err, result) => {
+      if (err) throw err;
+      let post = result[0];
+      res.render("edit.ejs", { post });
+    });
+  } catch (err) {
+    console.log(err);
+    res.send("some error with DB");
+  }
 });
-
-app.delete("/posts/:id", (req, res) => {
-    let { id } = req.params;
-    posts = posts.filter((p) => id !== p.id );
-    res.redirect("/posts");
+app.patch("/posts/:id", (req, res) => {
+  let { id } = req.params;
+  let { username, content } = req.body;
+  let q2 = `UPDATE post SET content = '${content}' WHERE id = '${id}'`;
+  try {
+    connection.query(q, (err, result) => {
+      if (err) throw err;
+      let post = result[0];
+      res.render("edit.ejs", { post });
+      
+    });
+  } catch (err) {
+    console.log(err);
+    res.send("some error with DB");
+  }
 });
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
+
+let q2 = `UPDATE user SET username = '${newUsername}' WHERE id = '${id}'`;
