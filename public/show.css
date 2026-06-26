@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f2ee;
+    color: #1c1c1c;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1c1c1c;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #ece9e4;
+    width: 100%;
+    max-width: 560px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+h2::before {
+    content: '📄';
+    font-size: 1rem;
+}
+
+body > p {
+    width: 100%;
+    max-width: 560px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #f7f5f2;
+    border: 1px solid #e8e4df;
+    border-radius: 999px;
+    padding: 5px 14px;
+    font-size: 0.8rem;
+    color: #555;
+    margin-bottom: 1.25rem;
+}
+
+.post {
+    background: #ffffff;
+    border: 1px solid #e0ddd8;
+    border-left: 4px solid #b92b27;
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 560px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.user {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #b92b27;
+    font-style: normal;
+}
+
+.post h4 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #2c2c2c;
+    line-height: 1.75;
+    padding-top: 0.75rem;
+    border-top: 1px solid #ece9e4;
+}
