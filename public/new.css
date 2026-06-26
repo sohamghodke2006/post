@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f2ee;
+    color: #1c1c1c;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+/* ── Form card ── */
+form {
+    background: #ffffff;
+    border: 1px solid #e0ddd8;
+    border-radius: 14px;
+    padding: 2rem 2.25rem;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* ── Form heading via pseudo ── */
+form::before {
+    content: '🖊️  Create New Post';
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1c1c1c;
+    display: block;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #ece9e4;
+}
+
+/* ── Username input ── */
+input[type="text"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: #1c1c1c;
+    background: #fafaf9;
+    border: 1px solid #d8d5d0;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin-bottom: 1rem;
+}
+
+input[type="text"]::placeholder {
+    color: #aaa;
+}
+
+input[type="text"]:focus {
+    border-color: #b92b27;
+    box-shadow: 0 0 0 3px rgba(185, 43, 39, 0.08);
+    background: #ffffff;
+}
+
+/* ── Textarea ── */
+textarea {
+    width: 100%;
+    resize: vertical;
+    padding: 0.9rem 1rem;
+    font-family: inherit;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #1c1c1c;
+    background: #fafaf9;
+    border: 1px solid #d8d5d0;
+    border-radius: 10px;
+    outline: none;
+    min-height: 180px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin-bottom: 1.5rem;
+}
+
+textarea::placeholder {
+    color: #aaa;
+}
+
+textarea:focus {
+    border-color: #b92b27;
+    box-shadow: 0 0 0 3px rgba(185, 43, 39, 0.08);
+    background: #ffffff;
+}
+
+/* ── Submit button ── */
+button[type="submit"] {
+    align-self: flex-end;
+    padding: 9px 28px;
+    background-color: #b92b27;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+button[type="submit"]:hover {
+    background-color: #951f1c;
+}
+
+button[type="submit"]:active {
+    transform: scale(0.97);
+}
