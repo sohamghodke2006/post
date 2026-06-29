@@ -18,13 +18,8 @@ const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
     database: "quora",
-<<<<<<< HEAD
     password: "soham2006"
 });
-=======
-    password: ""
-})
->>>>>>> cabc8ad206016528c5d06fc7ba9710b271c6650c
 
 
 let posts = [
