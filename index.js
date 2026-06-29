@@ -18,7 +18,7 @@ const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
     database: "quora",
-    password: "soham2006"
+    password: ""
 });
 
 
