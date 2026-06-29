@@ -19,7 +19,7 @@ const connection = mysql.createConnection({
     user: "root",
     database: "quora",
     password: "soham2006"
-})
+});
 
 
 let posts = [
